@@ -9,6 +9,7 @@
     {"name":"obj_walky","order":3,"path":"objects/obj_walky/obj_walky.yy",},
     {"name":"par_thingy","order":4,"path":"objects/par_thingy/par_thingy.yy",},
     {"name":"Room1","order":14,"path":"rooms/Room1/Room1.yy",},
+    {"name":"buffer_async_fixed","order":46,"path":"scripts/buffer_async_fixed/buffer_async_fixed.yy",},
     {"name":"bgm_idle_with_accordions","order":40,"path":"sounds/bgm_idle_with_accordions/bgm_idle_with_accordions.yy",},
     {"name":"se_coin","order":41,"path":"sounds/se_coin/se_coin.yy",},
     {"name":"se_footstep","order":45,"path":"sounds/se_footstep/se_footstep.yy",},

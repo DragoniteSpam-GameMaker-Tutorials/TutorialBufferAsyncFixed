@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"buffer_async_fixed",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"buffer_async_fixed",
+  "parent":{
+    "name":"TutorialBufferAsyncFixed",
+    "path":"TutorialBufferAsyncFixed.yyp",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

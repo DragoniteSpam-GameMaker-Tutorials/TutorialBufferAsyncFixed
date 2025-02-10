@@ -29,6 +29,7 @@
     {"id":{"name":"obj_walky","path":"objects/obj_walky/obj_walky.yy",},},
     {"id":{"name":"par_thingy","path":"objects/par_thingy/par_thingy.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"buffer_async_fixed","path":"scripts/buffer_async_fixed/buffer_async_fixed.yy",},},
     {"id":{"name":"bgm_idle_with_accordions","path":"sounds/bgm_idle_with_accordions/bgm_idle_with_accordions.yy",},},
     {"id":{"name":"se_coin","path":"sounds/se_coin/se_coin.yy",},},
     {"id":{"name":"se_footstep","path":"sounds/se_footstep/se_footstep.yy",},},
