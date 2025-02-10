@@ -55,7 +55,7 @@ if (casting_frame == 0) {
 } else {
     casting_frame = max(0, casting_frame - 0.25);
 }
-/*
+
 if (keyboard_check_pressed(ord("P"))) {
     var save_data = {
         x: obj_player.x,
@@ -65,43 +65,33 @@ if (keyboard_check_pressed(ord("P"))) {
     var save_json = json_stringify(save_data);
     var buffer = buffer_create(1, buffer_grow, 1);
     buffer_write(buffer, buffer_text, save_json);
-    buffer_save(buffer, "save.dat");
-    buffer_delete(buffer);
-}
-
-if (keyboard_check_pressed(ord("O"))) {
-    if (file_exists("save.dat")) {
-        var buffer = buffer_load("save.dat");
-        var save_json = buffer_read(buffer, buffer_text);
-        var save_data = json_parse(save_json);
-        buffer_delete(buffer);
-        
-        with (obj_player) {
-            x = save_data.x;
-            y = save_data.y;
-            anim_dir = save_data.dir;
+    
+    buffer_save_asink(buffer, "save.dat", 0, buffer_get_size(buffer), function(buffer, success) {
+        if (success) {
+            show_debug_message("successfully saved the game!");
+        } else {
+            show_debug_message("couldn't save the game. is your disk full or something?!");
         }
-    }
-}
-*/
-if (keyboard_check_pressed(ord("P"))) {
-    var save_data = {
-        x: obj_player.x,
-        y: obj_player.y,
-        dir: obj_player.anim_dir
-    };
-    var save_json = json_stringify(save_data);
-    var buffer = buffer_create(1, buffer_grow, 1);
-    buffer_write(buffer, buffer_text, save_json);
-    buffer_async_group_begin("duck");
-    buffer_save_async(buffer, "save.dat", 0, buffer_get_size(buffer));
-    save_buffer_async_id = buffer_async_group_end();
-    buffer_delete(buffer);
+        buffer_delete(buffer);
+    });
 }
 
 if (keyboard_check_pressed(ord("O"))) {
-    load_buffer = buffer_create(100, buffer_grow, 1);
-    buffer_async_group_begin("duck");
-    buffer_load_async(load_buffer, "duck/save.dat", 0, -1);
-    load_buffer_async_id = buffer_async_group_end();
+    buffer_load_asink("save.dat", 0, -1, function(buffer, success) {
+        if (success) {
+            var save_json = buffer_read(buffer, buffer_text);
+            var save_data = json_parse(save_json);
+            buffer_delete(buffer);
+        
+            with (obj_player) {
+                x = save_data.x;
+                y = save_data.y;
+                anim_dir = save_data.dir;
+            }
+        
+            show_debug_message("successfully loaded the game!");
+        } else {
+            show_message("oh no, failed to load!!!");
+        }
+    });
 }
