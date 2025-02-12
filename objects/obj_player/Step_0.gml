@@ -81,7 +81,6 @@ if (keyboard_check_pressed(ord("O"))) {
         if (success) {
             var save_json = buffer_read(buffer, buffer_text);
             var save_data = json_parse(save_json);
-            buffer_delete(buffer);
         
             with (obj_player) {
                 x = save_data.x;
@@ -93,5 +92,7 @@ if (keyboard_check_pressed(ord("O"))) {
         } else {
             show_message("oh no, failed to load!!!");
         }
+        
+        buffer_delete(buffer);
     });
 }
